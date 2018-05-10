@@ -17,9 +17,9 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RequestMapping("/diaria_avulsa")
 public class DiariaAvulsaController {
-	
+
 	private DiariaAvulsaService diariaAvulsaService;
-	
+
 	@GetMapping("/")
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView("list");
@@ -36,7 +36,7 @@ public class DiariaAvulsaController {
 	@GetMapping("/novo")
 	public ModelAndView novo() {
 		ModelAndView mav = new ModelAndView("form");
-		mav.addObject("diariasAvulsas", new DiariaAvulsaService());
+		//mav.addObject("diariasAvulsas", new DiariaAvulsaService());
 		return mav;
 	}
 

@@ -1,7 +1,5 @@
 package br.edu.ifrs.canoas.lds.webapp.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,23 +12,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Entity implementation class for Entity: Usuario	
+ * Entity implementation class for Entity: Usuario
  *
  */
 @Entity
 @Data
 @NoArgsConstructor
-public class Quarto implements Serializable {
+public class Quarto  {
 
-	private static final long serialVersionUID = 8671579293612635068L;
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-	
+
 	private String numero;
-	
-	@Enumerated(EnumType.STRING)    
+
+	@Enumerated(EnumType.STRING)
 	private TipoDeQuarto tipo;
 	private Boolean disponivel;
 	private String descricao;

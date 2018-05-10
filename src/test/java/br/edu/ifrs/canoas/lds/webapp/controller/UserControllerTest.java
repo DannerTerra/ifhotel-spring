@@ -22,7 +22,7 @@ import org.springframework.http.MediaType;
 
 import br.edu.ifrs.canoas.lds.webapp.config.Messages;
 import br.edu.ifrs.canoas.lds.webapp.config.auth.UserImpl;
-import br.edu.ifrs.canoas.lds.webapp.service.UserService;
+import br.edu.ifrs.canoas.lds.webapp.service.UsuarioService;
 
 @WebMvcTest(UserController.class)
 public class UserControllerTest extends BaseControllerTest{
@@ -31,7 +31,7 @@ public class UserControllerTest extends BaseControllerTest{
     @MockBean
     Messages messages;
     @MockBean
-    UserService userService;
+    UsuarioService userService;
     @MockBean
     UserImpl userImpl;
 

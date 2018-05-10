@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.webapp.domain.Quarto;
 import br.edu.ifrs.canoas.lds.webapp.repository.QuartoRepository;
-import br.edu.ifrs.canoas.lds.webapp.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
 @Service

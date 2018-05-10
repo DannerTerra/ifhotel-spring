@@ -26,16 +26,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class User {
+public class Usuario {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String username;
 	private boolean active;
-	@NotNull @Size(min=6, max=8) @Pattern(regexp = "[a-zA-Z0-9]+", message="#{validacao.letras}")  private String password;
+	private String password;
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<Role> roles;
+	private Set<Papel> papeis;
 	@NotBlank
 	private String name;
 	@Email @NotBlank
@@ -43,6 +43,6 @@ public class User {
 	private String experience;
 	private String skill;
     @OneToOne
-    private File picture;
+    private Arquivo picture;
 
 }

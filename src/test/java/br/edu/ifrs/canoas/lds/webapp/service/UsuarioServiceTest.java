@@ -11,27 +11,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import br.edu.ifrs.canoas.lds.webapp.domain.User;
+import br.edu.ifrs.canoas.lds.webapp.domain.Usuario;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
-public class UserServiceTest {
+public class UsuarioServiceTest {
 
     @Autowired
-    UserService service;
+    UsuarioService service;
 
     private final String PASSWORD = "password";
 
     @Test
     public void testSaveExistingUserIgnoringPassword(){
         // given
-        User user = new User();
+        Usuario user = new Usuario();
         user.setId(100L);
         user.setPassword(PASSWORD);
 
         // when
-        User saved = service.save(user);
+        Usuario saved = service.save(user);
 
         // then
         assertThat(saved.getId()).isNotNull();
@@ -41,14 +41,14 @@ public class UserServiceTest {
     @Test
     public void testSaveNotExistingUser(){
         // given
-        User user = new User();
+        Usuario user = new Usuario();
         user.setId(2L);
         user.setName("name");
         user.setEmail("email@email.email");
         user.setPassword(PASSWORD);
 
         // when
-        User saved = service.save(user);
+        Usuario saved = service.save(user);
 
         // then
         assertThat(saved).isNull();
@@ -57,12 +57,12 @@ public class UserServiceTest {
     @Ignore
     public void testSaveWithNullValue(){
         // given
-        User user = new User();
+        Usuario user = new Usuario();
         user.setId(100L);
         user.setPassword(PASSWORD);
 
         // when
-        User saved = service.save(null);
+        Usuario saved = service.save(null);
 
         // then
         assertThat(saved).isNull();

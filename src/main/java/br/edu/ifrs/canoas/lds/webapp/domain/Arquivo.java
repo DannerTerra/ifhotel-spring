@@ -1,6 +1,5 @@
 package br.edu.ifrs.canoas.lds.webapp.domain;
 
-import java.beans.Transient;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class File {
+public class Arquivo {
 
 	@Id
 	@GeneratedValue

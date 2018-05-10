@@ -27,18 +27,16 @@ import lombok.NoArgsConstructor;
 @Data
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TIPO_DIARIA")
-public abstract class Diaria implements Serializable {
+public abstract class Diaria {
 
-	private static final long serialVersionUID = 1334249871186028091L;
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-	
+
 	private Date data;
 	@ManyToMany(mappedBy="diarias")
 	private List<PessoaFisica> hospedes;
 	@ManyToOne
 	private Quarto quarto;
-   
+
 }

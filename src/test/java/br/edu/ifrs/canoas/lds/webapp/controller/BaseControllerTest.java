@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import br.edu.ifrs.canoas.lds.webapp.config.auth.UserImpl;
-import br.edu.ifrs.canoas.lds.webapp.domain.User;
+import br.edu.ifrs.canoas.lds.webapp.domain.Usuario;
 import lombok.Data;
 
 @RunWith(SpringRunner.class)
@@ -28,12 +28,12 @@ public abstract class BaseControllerTest {
     MockMvc mvc;
 
     protected UserImpl userDetails;
-    protected User user;
+    protected Usuario user;
 
 
     @Before
     public void setup() {
-    	user = new User();
+    	user = new Usuario();
     	user.setId(USER_ID);
     	user.setEmail(USER_EMAIL);
     	user.setName(USER_NAME);

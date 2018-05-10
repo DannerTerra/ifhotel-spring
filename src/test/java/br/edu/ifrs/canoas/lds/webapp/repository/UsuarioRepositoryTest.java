@@ -11,17 +11,16 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import br.edu.ifrs.canoas.lds.webapp.domain.User;
-import br.edu.ifrs.canoas.lds.webapp.repository.UserRepository;
+import br.edu.ifrs.canoas.lds.webapp.domain.Usuario;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserRepositoryTest {
+public class UsuarioRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
     @Autowired
-    private UserRepository repository;
+    private UsuarioRepository repository;
 
     private final String TEST_STRING = "Test String";
 
@@ -29,7 +28,7 @@ public class UserRepositoryTest {
     public void when_FindByThemeContaining_then_ReturnTermPaper(){
 
         // given
-        User user = new User();
+        Usuario user = new Usuario();
         user.setUsername(TEST_STRING);
         user.setName(TEST_STRING);
         user.setExperience(TEST_STRING);
@@ -40,7 +39,7 @@ public class UserRepositoryTest {
         entityManager.flush();
 
         // when
-        Optional<User> found = repository.findByUsername(TEST_STRING);
+        Optional<Usuario> found = repository.findByUsername(TEST_STRING);
 
         // then
         assertThat(found.get().getUsername()).isEqualTo(TEST_STRING);
@@ -52,7 +51,7 @@ public class UserRepositoryTest {
         // given
 
         // when
-        Optional<User> found = repository.findByUsername(TEST_STRING);
+        Optional<Usuario> found = repository.findByUsername(TEST_STRING);
 
         // then
         assertThat(found).isEmpty();

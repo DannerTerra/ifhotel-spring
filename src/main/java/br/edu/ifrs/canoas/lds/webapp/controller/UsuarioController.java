@@ -36,7 +36,7 @@ public class UsuarioController {
 
 	@GetMapping("/")
     public ModelAndView lista(@AuthenticationPrincipal UserImpl usuarioAtivo){
-        ModelAndView mav = new ModelAndView("lista");
+        ModelAndView mav = new ModelAndView("/usuario/lista");
         mav.addObject("usuarios", usuarioService.lista());
         return mav;
     }

@@ -25,7 +25,7 @@ public class QuartoController {
 	@GetMapping("/")
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView("/quarto/list");
-		mav.addObject("quarto", quartoService.findAll());
+		mav.addObject("quartos", quartoService.findAll());
 		return mav;
 	}
 

@@ -18,7 +18,7 @@ public class ReservaService {
 		return reservaRepository.findAll();
 	}
 
-	public void delete(Long id) {
+	public void deleta(Long id) {
 		reservaRepository.deleteById(id);
 	}
 

@@ -31,7 +31,6 @@ public class QuartoService {
 
 	public Quarto busca(Long id) {
 		return quartoRepository.getOne(id);
-	}
-	
+	}	
 	
 }

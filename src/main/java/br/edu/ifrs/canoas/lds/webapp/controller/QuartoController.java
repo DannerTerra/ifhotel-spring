@@ -52,6 +52,5 @@ public class QuartoController {
 		ModelAndView mav = new ModelAndView("redirect:/");
 		quartoService.salva(quarto);
 		return mav;
-	}
-    
+	}    
 }

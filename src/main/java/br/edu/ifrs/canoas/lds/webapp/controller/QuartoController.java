@@ -38,7 +38,7 @@ public class QuartoController {
 	@GetMapping("/delete/{id}")
 	public ModelAndView delete(@PathVariable Long id) {
 		quartoService.delete(id); 
-		return new ModelAndView("redirect:/quarto/list");
+		return new ModelAndView("redirect:/quarto/");
 	}
 
 	@GetMapping("/novo")

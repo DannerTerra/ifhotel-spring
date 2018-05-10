@@ -18,9 +18,9 @@ public class PessoaFisicaService {
 	public Iterable<PessoaFisica> list() {
 		return pfRepository.findAll();
 	}
-	public List<PessoaFisica> findAll(){
-		return pfRepository.findAll();
-	}
+//	public List<PessoaFisica> findAll(){
+//		return pfRepository.findAll();
+//	}
 
 	public void delete(Long id) {
 		pfRepository.deleteById(id);
@@ -47,6 +47,7 @@ public class PessoaFisicaService {
 	public PessoaFisica busca(Long id) {
 		return pfRepository.getOne(id);
 	}
+	
 	public PessoaFisica getOne(PessoaFisica pf) {
 		Optional<PessoaFisica> optPF = pfRepository.findById(pf.getId());
 		return optPF.isPresent()?optPF.get():null;

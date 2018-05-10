@@ -24,7 +24,7 @@ public class QuartoController {
     
 	@GetMapping("/")
 	public ModelAndView list() {
-		ModelAndView mav = new ModelAndView("list");
+		ModelAndView mav = new ModelAndView("/quarto/list");
 		mav.addObject("quarto", quartoService.findAll());
 		return mav;
 	}
@@ -37,14 +37,14 @@ public class QuartoController {
 
 	@GetMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/quarto/form");
 		//mav.addObject("quarto", new QuartoService());
 		return mav;
 	}
 
 	@GetMapping("/edita/{id}")
 	public ModelAndView edita(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/quarto/form");
 		mav.addObject("quarto", quartoService.busca(id));
 		return mav;
 	}

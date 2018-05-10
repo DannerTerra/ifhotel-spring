@@ -13,7 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Entity implementation class for Entity: Usuario
+ * Entity implementation class for Entity: Reserva
  *
  */
 @Entity

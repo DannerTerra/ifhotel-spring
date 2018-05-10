@@ -27,15 +27,15 @@ public class ReservaController {
 	private final ReservaService reservaService;
 	
 	@GetMapping("/")
-	public ModelAndView list() {
+	public ModelAndView lista() {
 		ModelAndView mav = new ModelAndView("list");
 		mav.addObject("reserva", reservaService.findAll());
 		return mav;
 	}
 	
-	@GetMapping("/delete/{id}")
-	public ModelAndView delete(@PathVariable Long id) {
-		reservaService.delete(id);
+	@GetMapping("/deleta/{id}")
+	public ModelAndView deleta(@PathVariable Long id) {
+		reservaService.deleta(id);
 		return new ModelAndView("redirect:/");
 	}
 	
@@ -46,8 +46,8 @@ public class ReservaController {
 		return mav;
 	}
 	
-    @PostMapping("/save")
-    public ModelAndView save(@Valid Reserva reserva, BindingResult bindingResult,
+    @PostMapping("/salva")
+    public ModelAndView salva(@Valid Reserva reserva, BindingResult bindingResult,
             RedirectAttributes redirectAttr, Locale locale){
 
     	if (bindingResult.hasErrors()) {

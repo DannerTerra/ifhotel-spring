@@ -43,7 +43,7 @@ insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) va
 insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) values (106, 'RESERVADA', '2018-04-17', 102, null, 405);
 
 -- Reserva - @DannerTerra
-INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (1,20.00,'2018-04-17',103,104);
-INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (2,30.00,'2018-04-18',304,105);
-INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (3,40.00,'2018-04-19',405,106);
+INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (123,20.00,'2018-04-17',103,104);
+INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (223,30.00,'2018-04-18',304,105);
+INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (323,40.00,'2018-04-19',405,106);
 

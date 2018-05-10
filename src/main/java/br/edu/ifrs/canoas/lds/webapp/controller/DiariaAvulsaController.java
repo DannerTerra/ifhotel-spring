@@ -30,7 +30,7 @@ public class DiariaAvulsaController {
 	@GetMapping("/delete/{id}")
 	public ModelAndView delete(@PathVariable Long id) {
 		diariaAvulsaService.delete(id);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/diaria_avulsa/list");
 	}
 
 	@GetMapping("/novo")
@@ -49,7 +49,7 @@ public class DiariaAvulsaController {
 
 	@PostMapping("/salva")
 	public ModelAndView salva(@Valid DiariaAvulsa diariaAvulsa) {
-		ModelAndView mav = new ModelAndView("redirect:/");
+		ModelAndView mav = new ModelAndView("redirect:/diaria_avulsa/list");
 		diariaAvulsaService.salva(diariaAvulsa);
 		return mav;
 	}

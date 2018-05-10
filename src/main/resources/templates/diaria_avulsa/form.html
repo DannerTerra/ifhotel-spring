@@ -1,10 +1,86 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html layout:decorate="~{/layouts/main}">
 
-</body>
+<head>
+<title th:text="#{diaria.administracao}" />
+</head>
+
+<div layout:fragment="content-header">
+	<section class="content-header">
+		<!-- PAGE TITLE -->
+		<h1>
+			<!-- 				<span th:text="#{reserva.list}" />-->
+			Lista de Diarias
+		</h1>
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><a href="#"> <i class="fa fa-dashboard"></i> <span
+					th:text="#{breadcrumb}" />
+			</a></li>
+<!-- 			<li><a href="#"><span th:text="#{reserva.list}" /></a></li> -->
+			<li><a href="#">Cadastrar Diaria</a></li>
+		</ol>
+	</section>
+
+	<div class="col-xs-12">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Cadastrar</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form role="form">
+				<div class="box-body">
+					<div class="form-group">
+						<label th:text="#{reserva.cliente}">Select</label> <select
+							class="form-control">
+							<option th:text="#{reserva.selectCliente}" value="">Selecione
+								o país</option>
+							<option value="PF">Pessoa Física</option>
+							<option value="PJ">Pessoa Jurídica</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label th:text="#{reserva.pf}">Select</label> <select
+							class="form-control">
+							<option th:text="#{reserva.selectPF}" value="">Selecione
+								o país</option>
+							<option th:each="pessoaFisica : ${pessoasFisicas}"
+								th:value="${pessoaFisica.id}" th:text="${pessoaFisica.nome}">option
+								1</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label th:text="#{reserva.pj}">Select</label> <select
+							class="form-control">
+							<option th:text="#{reserva.selectPJ}" value="">Selecione
+								o país</option>
+							<option th:each="pessoaJuridica : ${pessoasJuridicas}"
+								th:value="${pessoaJuridica.id}" th:text="${pessoaJuridica.nome}">option
+								1</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label th:text="#{reserva.quarto}">Select</label> <select
+							class="form-control">
+							<option th:text="#{reserva.selectQuarto}" value="">Selecione
+								o país</option>
+							<option th:each="quarto : ${quartos}" th:value="${quarto.id}"
+								th:text="${quarto.descricao}">option 1</option>
+						</select>
+					</div>
+				</div>
+				<!-- /.box-body -->
+
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>
+
 </html>

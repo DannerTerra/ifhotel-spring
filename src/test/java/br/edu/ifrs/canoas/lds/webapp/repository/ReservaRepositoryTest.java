@@ -23,7 +23,7 @@ public class ReservaRepositoryTest {
     @Autowired
     private ReservaRepository repository;
 
-    private final String TEST_STRING = "Test String";
+   // private final String TEST_STRING = "Test String";
     private final Double TEST_DOUBLE = 100.0;
     
     
@@ -34,6 +34,7 @@ public class ReservaRepositoryTest {
         // given
     	
     	PessoaFisica cliente = new PessoaFisica();
+    	// cliente.setId(147L);
     	cliente.setNome("usuario");
     	cliente.setCpf("123456");
     	entityManager.persist(cliente);
@@ -49,6 +50,7 @@ public class ReservaRepositoryTest {
         Optional<Reserva> found = repository.findByCliente(cliente);
 
         // then
+        found.get().getCliente().getNome();
         assertThat(found.get().getCliente().getNome()).isEqualTo("usuario");
     }
 

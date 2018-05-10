@@ -15,6 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.webapp.config.Messages;
 import br.edu.ifrs.canoas.lds.webapp.domain.Reserva;
+import br.edu.ifrs.canoas.lds.webapp.service.PessoaFisicaService;
+import br.edu.ifrs.canoas.lds.webapp.service.PessoaJuridicaService;
+import br.edu.ifrs.canoas.lds.webapp.service.QuartoService;
 import br.edu.ifrs.canoas.lds.webapp.service.ReservaService;
 import lombok.AllArgsConstructor;
 
@@ -25,11 +28,17 @@ public class ReservaController {
 
 	private final Messages messages;
 	private final ReservaService reservaService;
+	private final QuartoService quartoService;
+	private final PessoaJuridicaService pessoaJuridicaService;
+	private final PessoaFisicaService pessoaFisicaService;
 	
 	@GetMapping("/")
 	public ModelAndView lista() {
 		ModelAndView mav = new ModelAndView("/reserva/lista");
 		mav.addObject("reservas", reservaService.findAll());
+		mav.addObject("quartos", quartoService.findAll());
+		mav.addObject("pessoasFisicas", pessoaFisicaService.list());
+		mav.addObject("pessoasJuridicas", pessoaJuridicaService.findAll());
 		return mav;
 	}
 	

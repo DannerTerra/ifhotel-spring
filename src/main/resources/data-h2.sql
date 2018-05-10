@@ -27,6 +27,15 @@ insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento
 insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
             values ('PF', 405, 'edgar.dti@mailinator.com', 'Edgar', '54333333333', '33333333333', current_date(), '3333333333', 'M', '', '', '', null);
 
+ insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
+            values ('PJ', 104, 'john.smith@mailinator.com', 'Danner', '54999999999', '11111111111', current_date(), '44444444444', 'M', '', '', '', null);
+insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
+            values ('PJ', 305, 'fulano.bitcho@mailinator.com', 'Paulo', '54888888888', '22222222222', current_date(), '5555555555555', 'M', '', '', '', null);
+insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
+            values ('PJ', 406, 'edgar.dti@mailinator.com', 'Rafael', '54333333333', '33333333333', current_date(), '6666666666666', 'M', '', '', '', null);
+           
+            
+            
 -- Quarto
 INSERT INTO quarto(id, descricao, disponivel, numero, tipo) VALUES (100, 'Q100', true, '100', 'STANDARD');
 INSERT INTO quarto(id, descricao, disponivel, numero, tipo) VALUES (101, 'Q101', true, '101', 'DUPLO');
@@ -43,7 +52,7 @@ insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) va
 insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) values (106, 'RESERVADA', '2018-04-17', 102, null, 405);
 
 -- Reserva - @DannerTerra
-INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (1,20.00,'2018-04-17',103,104);
-INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (2,30.00,'2018-04-18',304,105);
-INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (3,40.00,'2018-04-19',405,106);
+INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (123,20.00,'2018-04-17',103,104);
+INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (223,30.00,'2018-04-18',304,105);
+INSERT INTO Reserva (id, valor, data, cliente_id, diaria_id)  VALUES (323,40.00,'2018-04-19',405,106);
 

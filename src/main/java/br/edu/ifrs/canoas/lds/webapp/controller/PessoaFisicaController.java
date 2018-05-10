@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.lds.webapp.controller;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,6 +26,13 @@ public class PessoaFisicaController {
         mav.addObject("pessoasFisicas", pfService.list());
         return mav;
     }
+	
+//	@GetMapping("/")
+//    public ModelAndView list(@PathVariable Long id){
+//        ModelAndView mav = new ModelAndView("/pessoa_fisica/fragments/select_pessoa :: select");
+//        mav.addObject("pessoasFisicas", pfService.list());
+//        return mav;
+//    }
 
 //    @PostMapping("/save")
 //    public ModelAndView save(@Valid Usuario user, BindingResult bindingResult,

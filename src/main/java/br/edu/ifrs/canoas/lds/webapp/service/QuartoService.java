@@ -1,5 +1,6 @@
 package br.edu.ifrs.canoas.lds.webapp.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -14,19 +15,20 @@ public class QuartoService {
 
 	private final QuartoRepository quartoRepository;
 
-	public Quarto save(Quarto quarto) { 
-		Quarto fetchedQuarto = this.getOne(quarto);
-		if (fetchedQuarto == null) return null;
-
-		fetchedQuarto.setNumero(quarto.getNumero());
-		fetchedQuarto.setDescricao(quarto.getDescricao());
-		fetchedQuarto.setDisponivel(quarto.getDisponivel());
-		fetchedQuarto.setTipo(quarto.getTipo());
-		return quartoRepository.save(fetchedQuarto);
+	public List<Quarto> findAll(){
+		return quartoRepository.findAll();
 	}
 
-	public Quarto getOne(Quarto quarto) {
-		Optional<Quarto> optQuarto = quartoRepository.findById(quarto.getId());
-		return optQuarto.isPresent()?optQuarto.get():null;
+	public void delete(Long id) {
+		quartoRepository.deleteById(id);
 	}
+
+	public void salva(Quarto quarto) {
+		quartoRepository.save(quarto);
+	}
+
+	public Quarto busca(Long id) {
+		return quartoRepository.getOne(id);
+	}	
+	
 }

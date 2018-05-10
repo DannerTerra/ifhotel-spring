@@ -24,8 +24,8 @@ import br.edu.ifrs.canoas.lds.webapp.config.Messages;
 import br.edu.ifrs.canoas.lds.webapp.config.auth.UserImpl;
 import br.edu.ifrs.canoas.lds.webapp.service.UsuarioService;
 
-@WebMvcTest(UserController.class)
-public class UserControllerTest extends BaseControllerTest{
+@WebMvcTest(UsuarioController.class)
+public class UsuarioControllerTest extends BaseControllerTest{
 
     // All autowired fields from Controller must have a mock
     @MockBean

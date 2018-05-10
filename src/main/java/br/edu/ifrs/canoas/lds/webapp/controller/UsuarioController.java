@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/user")
 @AllArgsConstructor
-public class UserController {
+public class UsuarioController {
 
 	private final Messages messages;
 	private final UsuarioService userService;
@@ -31,6 +31,13 @@ public class UserController {
     public ModelAndView viewProfile(@AuthenticationPrincipal UserImpl activeUser){
         ModelAndView mav = new ModelAndView("/user/profile");
         mav.addObject("user", userService.getOne(activeUser.getUser()));
+        return mav;
+    }
+
+	@GetMapping("/list")
+    public ModelAndView list(@AuthenticationPrincipal UserImpl activeUser){
+        ModelAndView mav = new ModelAndView("/user/list");
+        mav.addObject("usuarios", userService.list());
         return mav;
     }
 

@@ -24,7 +24,7 @@ public class PessoaJuridicaController {
 	@GetMapping("/")
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView("/pessoa_juridica/list");
-		mav.addObject("diariasAvulsas", pessoaJuridicaService.findAll());
+		mav.addObject("pessoaJuridicas", pessoaJuridicaService.findAll());
 		return mav;
 	}
 
@@ -50,7 +50,7 @@ public class PessoaJuridicaController {
 
 	@PostMapping("/salva")
 	public ModelAndView salva(@Valid PessoaJuridica pessoaJuridica) {
-		ModelAndView mav = new ModelAndView("redirect:/pessoa_juridica/list");
+		ModelAndView mav = new ModelAndView("redirect:/pessoa_juridica/");
 		pessoaJuridicaService.salva(pessoaJuridica);
 		return mav;
 	}

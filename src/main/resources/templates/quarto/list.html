@@ -41,18 +41,65 @@
 
 <!-- CONTENT -->
 <div layout:fragment="content">
+
 	<!-- Main content -->
 	<section class="content">
+	
 		<div class="row">
-
 			<div class="col-xs-12">
+
+				
+				<!-- CAIXA FORMULARIO DE CADASTRO DE QUARTOS -->
+				<div class="box box-danger">
+					<div class="box-header">
+						<h3 class="box-title">Formulario</h3>
+					</div>
+
+					<form role="form">
+						
+						<div class="box-body">
+							<div class="form-group">
+								<label><span th:text="#{quarto.numero}" /></label> <input
+									type="text" class="form-control" placeholder="#{quarto.numero}"	value="${quarto.numero}">
+							</div>
+							
+							<div class="form-group">
+								<label><span th:text="#{quarto.descricao}" /></label> <input
+									type="text" class="form-control"
+									placeholder="#{quarto.descricao}" value="${quarto.descricao}">
+							</div>
+							
+							<div class="form-group">
+								<label><span th:text="#{quarto.tipo}" /></label> 
+								<select	class="form-control" id="tipo">					
+									<option	th:each="tipoQuarto : ${tipoQuartos}" th:value="${tipoQuarto}" th:text="${tipoQuarto}" >XXXXX</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label><span th:text="#{quarto.disponivel}" /></label> <input
+									type="text" class="form-control"
+									placeholder="#{quarto.disponivel}" value="${quarto.disponivel}">
+							</div>
+						</div>
+						
+						<div class="box-footer">
+							<button type="submit" class="btn btn-default">Cancel</button>
+							<button type="submit" class="btn btn-info pull-right">Sign in</button>
+						</div>
+						
+					</form>
+				</div>
+
+				
+				<!-- CAIXA LISTA DE QUARTOS -->		
 				<div class="box">
 					<div class="box-header">
 						<h3 class="box-title" th:text="#{quarto.tabela.titulo}">Responsive
 							Hover Table</h3>
 					</div>
 
-					<!-- /.box-header -->
+					
 					<div class="box-body">
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
@@ -62,6 +109,7 @@
 									<th th:text="#{quarto.numero}"></th>
 									<th th:text="#{quarto.tipo}"></th>
 									<th th:text="#{quarto.disponivel}"></th>
+									<th th:text="#{quarto.acoes}"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -71,12 +119,15 @@
 									<td th:text="${quarto.numero}">201</td>
 									<td th:text="${quarto.tipo}">Standard</td>
 									<td th:text="${quarto.disponivel}?#{quarto.sim}:#{quarto.nao}">Sim</td>
+									<td><a href="#" th:href="@{|quarto/edita/${quarto.id}|}">Editar</a>|
+										<a href="#" th:href="@{|quarto/delete/${quarto.id}|}">Excluir</a>
+									</td>
 								</tr>
 						</table>
 					</div>
-
 				</div>
-				<!-- /.box -->
+				
+
 			</div>
 
 		</div>

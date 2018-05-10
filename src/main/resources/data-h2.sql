@@ -27,3 +27,14 @@ insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento
 insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
             values ('PF', 405, 'edgar.dti@mailinator.com', 'Edgar', '54333333333', '33333333333', current_date(), '3333333333', 'M', '', '', '', null);
 
+-- Quarto
+INSERT INTO quarto(id, descricao, disponivel, numero, tipo) VALUES (100, 'Q100', true, '100', 'STANDARD');
+INSERT INTO quarto(id, descricao, disponivel, numero, tipo) VALUES (101, 'Q101', true, '101', 'DUPLO');
+INSERT INTO quarto(id, descricao, disponivel, numero, tipo) VALUES (102, 'Q102', true, '102', 'MASTER');
+INSERT INTO quarto(id, descricao, disponivel, numero, tipo) VALUES (103, 'Q103', true, '103', 'PRESIDENCIAL');
+
+-- diaria
+insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) values (101, 'AVULSA', '2018-04-17', 100, null, 103); 
+insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) values (102, 'AVULSA', '2018-04-17', 101, null, 304);
+insert into Diaria (id, tipo_diaria, data, quarto_id, reserva_id, cliente_id) values (103, 'AVULSA', '2018-04-17', 102, null, 405);
+

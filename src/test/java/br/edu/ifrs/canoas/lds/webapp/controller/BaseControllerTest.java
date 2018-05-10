@@ -20,31 +20,31 @@ import lombok.Data;
 public abstract class BaseControllerTest {
 
     protected static final Long   USER_ID= 101L;
-    protected static final String USER_NAME= "User Principal";
+    protected static final String USER_NAME= "Usuário Principal";
     protected static final String USER_EMAIL= "rodrigo.noll@canoas.ifrs.edu.br";
     protected static final String FIELD_SAVED = "Salvo com sucesso";
 
     @Autowired
     MockMvc mvc;
 
-    protected UserImpl userDetails;
-    protected Usuario user;
+    protected UserImpl usuarioDetails;
+    protected Usuario usuario;
 
 
     @Before
     public void setup() {
-    	user = new Usuario();
-    	user.setId(USER_ID);
-    	user.setEmail(USER_EMAIL);
-    	user.setName(USER_NAME);
-        userDetails = new UserImpl("user", "user",
+    	usuario = new Usuario();
+    	usuario.setId(USER_ID);
+    	usuario.setEmail(USER_EMAIL);
+    	usuario.setName(USER_NAME);
+        usuarioDetails = new UserImpl("user", "user",
         		AuthorityUtils.createAuthorityList("ROLE_USER"),
-        		user);
+        		usuario);
 
         Authentication authentication = Mockito.mock(Authentication.class);
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
         Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
-        Mockito.when(securityContext.getAuthentication().getPrincipal()).thenReturn(userDetails);
+        Mockito.when(securityContext.getAuthentication().getPrincipal()).thenReturn(usuarioDetails);
         SecurityContextHolder.setContext(securityContext);
     }
 

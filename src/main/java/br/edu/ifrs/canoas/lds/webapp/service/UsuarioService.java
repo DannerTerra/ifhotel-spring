@@ -12,25 +12,25 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UsuarioService {
 
-	private final UsuarioRepository userRepository;
+	private final UsuarioRepository usuarioRepository;
 
-	public Usuario save(Usuario user) {
-		Usuario fetchedUser = this.getOne(user);
+	public Usuario salva(Usuario usuario) {
+		Usuario fetchedUser = this.busca(usuario);
 		if (fetchedUser == null) return null;
 
-		fetchedUser.setName(user.getName());
-		fetchedUser.setEmail(user.getEmail());
-		fetchedUser.setSkill(user.getSkill());
-		fetchedUser.setExperience(user.getExperience());
-		return userRepository.save(fetchedUser);
+		fetchedUser.setName(usuario.getName());
+		fetchedUser.setEmail(usuario.getEmail());
+		fetchedUser.setSkill(usuario.getSkill());
+		fetchedUser.setExperience(usuario.getExperience());
+		return usuarioRepository.save(fetchedUser);
 	}
 
-	public Usuario getOne(Usuario user) {
-		Optional<Usuario> optUser = userRepository.findById(user.getId());
+	public Usuario busca(Usuario usuario) {
+		Optional<Usuario> optUser = usuarioRepository.findById(usuario.getId());
 		return optUser.isPresent()?optUser.get():null;
 	}
 
-	public Iterable<Usuario> list() {
-		return userRepository.findAll();
+	public Iterable<Usuario> lista() {
+		return usuarioRepository.findAll();
 	}
 }

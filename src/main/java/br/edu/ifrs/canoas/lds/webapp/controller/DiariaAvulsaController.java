@@ -22,7 +22,7 @@ public class DiariaAvulsaController {
 
 	@GetMapping("/")
 	public ModelAndView list() {
-		ModelAndView mav = new ModelAndView("list");
+		ModelAndView mav = new ModelAndView("/diaria_avulsa/list");
 		mav.addObject("diariasAvulsas", diariaAvulsaService.findAll());
 		return mav;
 	}
@@ -30,26 +30,26 @@ public class DiariaAvulsaController {
 	@GetMapping("/delete/{id}")
 	public ModelAndView delete(@PathVariable Long id) {
 		diariaAvulsaService.delete(id);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/diaria_avulsa/list");
 	}
 
 	@GetMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mav = new ModelAndView("form");
-		//mav.addObject("diariasAvulsas", new DiariaAvulsaService());
+		ModelAndView mav = new ModelAndView("/diaria_avulsa/form");
+		mav.addObject("diariasAvulsas", new DiariaAvulsa());
 		return mav;
 	}
 
 	@GetMapping("/edita/{id}")
 	public ModelAndView edita(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/diaria_avulsa/form");
 		mav.addObject("diariaAvulsa", diariaAvulsaService.busca(id));
 		return mav;
 	}
 
 	@PostMapping("/salva")
 	public ModelAndView salva(@Valid DiariaAvulsa diariaAvulsa) {
-		ModelAndView mav = new ModelAndView("redirect:/");
+		ModelAndView mav = new ModelAndView("redirect:/diaria_avulsa/list");
 		diariaAvulsaService.salva(diariaAvulsa);
 		return mav;
 	}

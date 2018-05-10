@@ -24,7 +24,7 @@ public class QuartoService {
 		
 		//diariaAvulsaRepository.deleteById(arg0);
 		//Quarto quarto = this.busca(id);
-		quartoRepository.deleteById(id);
+		quartoRepository.deleteById(id); 
 	}
 
 	public void salva(Quarto quarto) {

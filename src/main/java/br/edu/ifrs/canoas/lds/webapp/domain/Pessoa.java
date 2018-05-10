@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
@@ -27,14 +30,20 @@ import lombok.NoArgsConstructor;
 @Data
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TIPO_PESSOA")
-public abstract class Pessoa extends BaseEntity<Long> implements Serializable {
+public abstract class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 6019880333458919264L;
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
 	@NotNull @Size(min=2, max=100,message="#{pessoa.nome}")private String nome;
 	//@NotNull @Pattern(regexp="\\(\\d{2}\\)\\ \\d{4}-\\d{4}")
 	@NotNull private String telefone;
 	@NotNull @Email private String email;
+	
+	
 	
 	@OneToOne
 	private Endereco endereco;

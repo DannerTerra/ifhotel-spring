@@ -63,6 +63,7 @@
 										<table id="example1"
 											class="table table-bordered table-striped dataTable"
 											role="grid" aria-describedby="example1_info">
+
 											<thead>
 												<tr role="row">
 													<th class="sorting_asc" tabindex="0"
@@ -106,8 +107,10 @@
 													<td th:text="${pessoaFisica.dataNascimento}">1.7</td>
 													<td th:text="${pessoaFisica.idade}">A</td>
 													<td th:text="${pessoaFisica.idade}">A</td>
-													<td><a href="#"	th:href="@{|/pessoa_fisica/edita/${pessoaFisica.id}|}">Editar</a>|
-														<a href="#" th:href="@{|/pessoa_fisica/delete/${pessoaFisica.id}|}">Excluir</a>
+													<td><a href="#"
+														th:href="@{|/pessoa_fisica/edita/${pessoaFisica.id}|}">Editar</a>|
+														<a href="#"
+														th:href="@{|/pessoa_fisica/delete/${pessoaFisica.id}|}">Excluir</a>
 													</td>
 												</tr>
 											</tbody>
@@ -139,9 +142,7 @@
 			</div>
 			<!-- /.box -->
 		</div>
-</div>
-<!-- /.col -->
-</section>
+	</section>
 </div>
 
 <th:block layout:fragment="js-view">

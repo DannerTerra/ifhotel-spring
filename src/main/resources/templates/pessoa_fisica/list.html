@@ -1,0 +1,169 @@
+<html layout:decorate="~{/layouts/main}">
+
+<head>
+<title th:text="#{pessoaFisica}" />
+<th:block layout:fragment="css-view">
+	<!-- bootstrap datepicker -->
+	<link rel="stylesheet"
+		href="/webjars/adminlte/2.3.11/plugins/datepicker/datepicker3.css">
+	<!-- DataTables -->
+	<link rel="stylesheet"
+		href="/webjars/adminlte/2.3.11/plugins/datatables/dataTables.bootstrap.css">
+</th:block>
+</head>
+
+<!-- CONTENT HEADER -->
+<div layout:fragment="content-header">
+	<section class="content-header">
+		<!-- PAGE TITLE -->
+		<h1>
+			<span th:text="#{pessoaFisica.title.list}" />
+		</h1>
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><a href="#"> <i class="fa fa-dashboard"></i> <span
+					th:text="#{breadcrumb}" />
+			</a></li>
+			<li><a href="#"><span th:text="#{pessoaFisica.title.list}" /></a></li>
+		</ol>
+	</section>
+</div>
+
+
+<!-- CONTENT -->
+<div layout:fragment="content">
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+
+			<div class="col-xs-12">
+				<div class="box">
+
+					<!-- /.box-header -->
+					<div class="box-header">
+						<h3 class="box-title">
+							<span th:text="#{pessoaFisica}" />
+						</h3>
+					</div>
+					<!-- /.box-header -->
+
+
+
+					<!-- /.box-body -->
+					<div class="box">
+						<div class="box-header">
+							<h3 class="box-title">Data Table With Full Features</h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div id="example1_wrapper"
+								class="dataTables_wrapper form-inline dt-bootstrap">
+								<div class="row">
+									<div class="col-sm-12">
+										<table id="example1"
+											class="table table-bordered table-striped dataTable"
+											role="grid" aria-describedby="example1_info">
+											<thead>
+												<tr role="row">
+													<th class="sorting_asc" tabindex="0"
+														aria-controls="example1" rowspan="1" colspan="1"
+														aria-sort="ascending"
+														aria-label="Rendering engine: activate to sort column descending"
+														style="width: 234px;">ID</th>
+													<th class="sorting" tabindex="0" aria-controls="example1"
+														rowspan="1" colspan="1"
+														aria-label="Browser: activate to sort column ascending"
+														style="width: 286px;"><span
+														th:text="#{pessoaFisica.nome}" /></th>
+													<th class="sorting" tabindex="0" aria-controls="example1"
+														rowspan="1" colspan="1"
+														aria-label="Platform(s): activate to sort column ascending"
+														style="width: 255px;"><span
+														th:text="#{pessoaFisica.email}" /></th>
+													<th class="sorting" tabindex="0" aria-controls="example1"
+														rowspan="1" colspan="1"
+														aria-label="Engine version: activate to sort column ascending"
+														style="width: 201px;"><span
+														th:text="#{pessoaFisica.dataNascimento}" /></th>
+													<th class="sorting" tabindex="0" aria-controls="example1"
+														rowspan="1" colspan="1"
+														aria-label="CSS grade: activate to sort column ascending"
+														style="width: 148px;"><span
+														th:text="#{pessoaFisica.idade}" /></th>
+													<th class="sorting" tabindex="0" aria-controls="example1"
+														rowspan="1" colspan="1"
+														aria-label="CSS grade: activate to sort column ascending"
+														style="width: 148px;">Action</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr role="row" class="odd"
+													th:each="pessoaFisica : ${pessoasFisicas}">
+													<td th:text="${pessoaFisica.id}">Firefox 1.0</td>
+													<td class="sorting_1" th:text="${pessoaFisica.nome}">Gecko</td>
+													<td th:text="${pessoaFisica.email}">Win 98+ / OSX.2+</td>
+													<td th:text="${pessoaFisica.dataNascimento}">1.7</td>
+													<td th:text="${pessoaFisica.idade}">A</td>
+													<td th:text="${pessoaFisica.idade}">A</td>
+													<td><a href="#"	th:href="@{|/pessoa_fisica/edita/${pessoaFisica.id}|}">Editar</a>|
+														<a href="#" th:href="@{|/pessoa_fisica/delete/${pessoaFisica.id}|}">Excluir</a>
+													</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<th rowspan="1" colspan="1">ID</th>
+													<th rowspan="1" colspan="1"><span
+														th:text="#{pessoaFisica.nome}" /></th>
+													<th rowspan="1" colspan="1"><span
+														th:text="#{pessoaFisica.email}" /></th>
+													<th rowspan="1" colspan="1"><span
+														th:text="#{pessoaFisica.dataNascimento}" /></th>
+													<th rowspan="1" colspan="1"><span
+														th:text="#{pessoaFisica.idade}" /></th>
+													<th rowspan="1" colspan="1">Action</th>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+
+				</div>
+				<!-- /.box-body -->
+
+			</div>
+			<!-- /.box -->
+		</div>
+</div>
+<!-- /.col -->
+</section>
+</div>
+
+<th:block layout:fragment="js-view">
+	<!-- bootstrap datepicker -->
+	<script
+		src="/webjars/adminlte/2.3.11/plugins/datepicker/bootstrap-datepicker.js"></script>]
+  <!-- DataTables -->
+	<script
+		src="/webjars/adminlte/2.3.11/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script
+		src="/webjars/adminlte/2.3.11/plugins/datatables/dataTables.bootstrap.min.js"></script>
+	<script>
+		// Date picker
+		$('#datepicker').datepicker({
+			autoclose : true
+		})
+		// Data Table
+		$(function() {
+			$('#example1').DataTable()
+		})
+	</script>
+
+</th:block>
+</html>
+

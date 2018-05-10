@@ -28,20 +28,20 @@ public class ReservaController {
 	
 	@GetMapping("/")
 	public ModelAndView lista() {
-		ModelAndView mav = new ModelAndView("list");
-		mav.addObject("reserva", reservaService.findAll());
+		ModelAndView mav = new ModelAndView("/reserva/lista");
+		mav.addObject("reservas", reservaService.findAll());
 		return mav;
 	}
 	
 	@GetMapping("/deleta/{id}")
 	public ModelAndView deleta(@PathVariable Long id) {
 		reservaService.deleta(id);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/reserva");
 	}
 	
 	@GetMapping("/edita/{id}")
 	public ModelAndView edita(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/reserva/lista");
 		mav.addObject("reserva", reservaService.busca(id));
 		return mav;
 	}
@@ -51,10 +51,10 @@ public class ReservaController {
             RedirectAttributes redirectAttr, Locale locale){
 
     	if (bindingResult.hasErrors()) {
-            return new ModelAndView("/reserva/form");
+            return new ModelAndView("/reserva/lista");
         }
 
-    	ModelAndView mav = new ModelAndView("redirect:/reserva/form");
+    	ModelAndView mav = new ModelAndView("redirect:/reserva");
         mav.addObject("reserva", reservaService.salva(reserva));
         redirectAttr.addFlashAttribute("message", messages.get("field.saved"));
 

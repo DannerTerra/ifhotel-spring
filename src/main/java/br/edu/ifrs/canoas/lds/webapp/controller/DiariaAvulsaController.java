@@ -48,14 +48,16 @@ public class DiariaAvulsaController {
 
 	@GetMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mav = new ModelAndView("/diaria_avulsa/form");
+		//ModelAndView mav = new ModelAndView("/diaria_avulsa/form");
+		ModelAndView mav = new ModelAndView("/diaria_avulsa/");
 		mav.addObject("diariaAvulsa", new DiariaAvulsa());
 		return mav;
 	}
 
 	@GetMapping("/edita/{id}")
 	public ModelAndView edita(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("/diaria_avulsa/form");
+		//ModelAndView mav = new ModelAndView("/diaria_avulsa/form");
+		ModelAndView mav = new ModelAndView("/diaria_avulsa/");
 		mav.addObject("diariaAvulsa", diariaAvulsaService.busca(id));
 		return mav;
 	}

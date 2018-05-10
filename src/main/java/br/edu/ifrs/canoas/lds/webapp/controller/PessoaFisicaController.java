@@ -12,16 +12,16 @@ import br.edu.ifrs.canoas.lds.webapp.service.PessoaFisicaService;
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping("/pessoaFisica")
+@RequestMapping("/pessoa_fisica")
 @AllArgsConstructor
 public class PessoaFisicaController {
 
 	private final Messages messages;
 	private final PessoaFisicaService pfService;
 
-	@GetMapping("/list")
+	@GetMapping("/")
     public ModelAndView list(@AuthenticationPrincipal UserImpl activeUser){
-        ModelAndView mav = new ModelAndView("/pessoaFisica/list");
+        ModelAndView mav = new ModelAndView("/pessoa_fisica/index");
         mav.addObject("pessoasFisicas", pfService.list());
         return mav;
     }

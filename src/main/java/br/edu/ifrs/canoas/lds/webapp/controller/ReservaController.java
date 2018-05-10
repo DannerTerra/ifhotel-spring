@@ -27,34 +27,34 @@ public class ReservaController {
 	private final ReservaService reservaService;
 	
 	@GetMapping("/")
-	public ModelAndView list() {
-		ModelAndView mav = new ModelAndView("list");
-		mav.addObject("reserva", reservaService.findAll());
+	public ModelAndView lista() {
+		ModelAndView mav = new ModelAndView("/reserva/lista");
+		mav.addObject("reservas", reservaService.findAll());
 		return mav;
 	}
 	
-	@GetMapping("/delete/{id}")
-	public ModelAndView delete(@PathVariable Long id) {
-		reservaService.delete(id);
-		return new ModelAndView("redirect:/");
+	@GetMapping("/deleta/{id}")
+	public ModelAndView deleta(@PathVariable Long id) {
+		reservaService.deleta(id);
+		return new ModelAndView("redirect:/reserva");
 	}
 	
 	@GetMapping("/edita/{id}")
 	public ModelAndView edita(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/reserva/lista");
 		mav.addObject("reserva", reservaService.busca(id));
 		return mav;
 	}
 	
-    @PostMapping("/save")
-    public ModelAndView save(@Valid Reserva reserva, BindingResult bindingResult,
+    @PostMapping("/salva")
+    public ModelAndView salva(@Valid Reserva reserva, BindingResult bindingResult,
             RedirectAttributes redirectAttr, Locale locale){
 
     	if (bindingResult.hasErrors()) {
-            return new ModelAndView("/reserva/form");
+            return new ModelAndView("/reserva/lista");
         }
 
-    	ModelAndView mav = new ModelAndView("redirect:/reserva/form");
+    	ModelAndView mav = new ModelAndView("redirect:/reserva");
         mav.addObject("reserva", reservaService.salva(reserva));
         redirectAttr.addFlashAttribute("message", messages.get("field.saved"));
 

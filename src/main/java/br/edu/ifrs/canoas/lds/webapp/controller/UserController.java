@@ -2,8 +2,8 @@ package br.edu.ifrs.canoas.lds.webapp.controller;
 
 import br.edu.ifrs.canoas.lds.webapp.config.Messages;
 import br.edu.ifrs.canoas.lds.webapp.config.auth.UserImpl;
-import br.edu.ifrs.canoas.lds.webapp.domain.User;
-import br.edu.ifrs.canoas.lds.webapp.service.UserService;
+import br.edu.ifrs.canoas.lds.webapp.domain.Usuario;
+import br.edu.ifrs.canoas.lds.webapp.service.UsuarioService;
 import lombok.AllArgsConstructor;
 
 import java.util.Locale;
@@ -25,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class UserController {
 
 	private final Messages messages;
-	private final UserService userService;
+	private final UsuarioService userService;
 
 	@GetMapping("/profile")
     public ModelAndView viewProfile(@AuthenticationPrincipal UserImpl activeUser){
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public ModelAndView save(@Valid User user, BindingResult bindingResult,
+    public ModelAndView save(@Valid Usuario user, BindingResult bindingResult,
             RedirectAttributes redirectAttr, Locale locale){
 
     	if (bindingResult.hasErrors()) {

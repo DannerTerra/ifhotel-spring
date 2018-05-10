@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.webapp.config.auth.UserImpl;
-import br.edu.ifrs.canoas.lds.webapp.repository.UserRepository;
+import br.edu.ifrs.canoas.lds.webapp.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 
 /**
@@ -18,9 +18,9 @@ import lombok.AllArgsConstructor;
  */
 @Service
 @AllArgsConstructor
-public class UserDetailsImplService implements UserDetailsService {
+public class UsuarioDetailsImplService implements UserDetailsService {
 
-	private final UserRepository userRepository;
+	private final UsuarioRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

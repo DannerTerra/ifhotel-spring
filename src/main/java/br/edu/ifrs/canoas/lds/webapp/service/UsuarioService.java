@@ -4,18 +4,18 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.webapp.domain.User;
-import br.edu.ifrs.canoas.lds.webapp.repository.UserRepository;
+import br.edu.ifrs.canoas.lds.webapp.domain.Usuario;
+import br.edu.ifrs.canoas.lds.webapp.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class UserService {
+public class UsuarioService {
 
-	private final UserRepository userRepository;
+	private final UsuarioRepository userRepository;
 
-	public User save(User user) {
-		User fetchedUser = this.getOne(user);
+	public Usuario save(Usuario user) {
+		Usuario fetchedUser = this.getOne(user);
 		if (fetchedUser == null) return null;
 
 		fetchedUser.setName(user.getName());
@@ -25,8 +25,8 @@ public class UserService {
 		return userRepository.save(fetchedUser);
 	}
 
-	public User getOne(User user) {
-		Optional<User> optUser = userRepository.findById(user.getId());
+	public Usuario getOne(Usuario user) {
+		Optional<Usuario> optUser = userRepository.findById(user.getId());
 		return optUser.isPresent()?optUser.get():null;
 	}
 }

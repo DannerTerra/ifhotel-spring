@@ -4,15 +4,15 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import br.edu.ifrs.canoas.lds.webapp.domain.User;
+import br.edu.ifrs.canoas.lds.webapp.domain.Usuario;
 
 public class UserImpl extends org.springframework.security.core.userdetails.User{
 
 	private static final long serialVersionUID = 1308839480601748734L;
 
-	private User user;
+	private Usuario user;
 
-    public UserImpl(String username, String password, Collection<? extends GrantedAuthority> authorities, User user) {
+    public UserImpl(String username, String password, Collection<? extends GrantedAuthority> authorities, Usuario user) {
         super(username, password, authorities);
         this.user = user;
     }
@@ -25,7 +25,7 @@ public class UserImpl extends org.springframework.security.core.userdetails.User
         super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
     }
 
-    public User getUser() {
+    public Usuario getUser() {
         return user;
     }
 }

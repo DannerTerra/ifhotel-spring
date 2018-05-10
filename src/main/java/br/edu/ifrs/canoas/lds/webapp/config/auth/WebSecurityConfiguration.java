@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import br.edu.ifrs.canoas.lds.webapp.service.UserDetailsImplService;
+import br.edu.ifrs.canoas.lds.webapp.service.UsuarioDetailsImplService;
 import lombok.AllArgsConstructor;
 
 /**
@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    UserDetailsImplService accountUserDetailsService;
+    UsuarioDetailsImplService accountUserDetailsService;
 
 	@Autowired
 	public void configureAuth(AuthenticationManagerBuilder auth) throws Exception {

@@ -10,11 +10,11 @@ public class UserImpl extends org.springframework.security.core.userdetails.User
 
 	private static final long serialVersionUID = 1308839480601748734L;
 
-	private Usuario user;
+	private Usuario usuario;
 
-    public UserImpl(String username, String password, Collection<? extends GrantedAuthority> authorities, Usuario user) {
+    public UserImpl(String username, String password, Collection<? extends GrantedAuthority> authorities, Usuario usuario) {
         super(username, password, authorities);
-        this.user = user;
+        this.usuario = usuario;
     }
 
     public UserImpl(String username, String password, Collection<? extends GrantedAuthority> authorities) {
@@ -26,6 +26,6 @@ public class UserImpl extends org.springframework.security.core.userdetails.User
     }
 
     public Usuario getUser() {
-        return user;
+        return usuario;
     }
 }

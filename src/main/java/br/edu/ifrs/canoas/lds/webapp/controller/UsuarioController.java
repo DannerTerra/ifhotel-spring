@@ -20,37 +20,37 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/usuario")
 @AllArgsConstructor
 public class UsuarioController {
 
 	private final Messages messages;
-	private final UsuarioService userService;
+	private final UsuarioService usuarioService;
 
-	@GetMapping("/profile")
-    public ModelAndView viewProfile(@AuthenticationPrincipal UserImpl activeUser){
-        ModelAndView mav = new ModelAndView("/user/profile");
-        mav.addObject("user", userService.getOne(activeUser.getUser()));
+	@GetMapping("/perfil")
+    public ModelAndView perfil(@AuthenticationPrincipal UserImpl usuarioAtivo){
+        ModelAndView mav = new ModelAndView("/usuario/perfil");
+        mav.addObject("usuario", usuarioService.busca(usuarioAtivo.getUser()));
         return mav;
     }
 
-	@GetMapping("/list")
-    public ModelAndView list(@AuthenticationPrincipal UserImpl activeUser){
-        ModelAndView mav = new ModelAndView("/user/list");
-        mav.addObject("usuarios", userService.list());
+	@GetMapping("/")
+    public ModelAndView lista(@AuthenticationPrincipal UserImpl usuarioAtivo){
+        ModelAndView mav = new ModelAndView("lista");
+        mav.addObject("usuarios", usuarioService.lista());
         return mav;
     }
 
-    @PostMapping("/save")
-    public ModelAndView save(@Valid Usuario user, BindingResult bindingResult,
+    @PostMapping("/salva")
+    public ModelAndView salva(@Valid Usuario usuario, BindingResult bindingResult,
             RedirectAttributes redirectAttr, Locale locale){
 
     	if (bindingResult.hasErrors()) {
-            return new ModelAndView("/user/profile");
+            return new ModelAndView("/usuario/perfil");
         }
 
-    	ModelAndView mav = new ModelAndView("redirect:/user/profile");
-        mav.addObject("user", userService.save(user));
+    	ModelAndView mav = new ModelAndView("redirect:/usuario/perfil");
+        mav.addObject("usuario", usuarioService.salva(usuario));
         redirectAttr.addFlashAttribute("message", messages.get("field.saved"));
 
         return mav;

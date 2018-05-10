@@ -31,21 +31,21 @@ public class UsuarioControllerTest extends BaseControllerTest{
     @MockBean
     Messages messages;
     @MockBean
-    UsuarioService userService;
+    UsuarioService usuarioService;
     @MockBean
-    UserImpl userImpl;
+    UserImpl usuarioImpl;
 
     @Test
-    public void view_user_profile() throws Exception{
-    	given(userService.getOne(super.user)).willReturn(super.user);
-        this.mvc.perform(get("/user/profile")
-                .with(user(userDetails))
+    public void view_usuario_profile() throws Exception{
+    	given(usuarioService.busca(super.usuario)).willReturn(super.usuario);
+        this.mvc.perform(get("/usuario/perfil")
+                .with(user(usuarioDetails))
                 .accept(MediaType.TEXT_HTML)
         )
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("text/html;charset=UTF-8"))
-                .andExpect(view().name("/user/profile"))
-                .andExpect(model().attribute("user"
+                .andExpect(view().name("/usuario/perfil"))
+                .andExpect(model().attribute("usuario"
                         ,allOf(
                                 hasProperty("id", is(USER_ID))
                                 ,hasProperty("name", is(USER_NAME)))
@@ -54,19 +54,19 @@ public class UsuarioControllerTest extends BaseControllerTest{
     }
 
     @Test
-    public void save_user_profile() throws Exception{
-    	given(userService.getOne(super.user)).willReturn(super.user);
+    public void save_usuario_profile() throws Exception{
+    	given(usuarioService.busca(super.usuario)).willReturn(super.usuario);
         given(this.messages.get("field.saved")).willReturn(FIELD_SAVED);
 
-        this.mvc.perform(post("/user/save")
-                .with(user(userDetails))
+        this.mvc.perform(post("/usuario/salva")
+                .with(user(usuarioDetails))
                 .with(csrf())
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("id", USER_ID.toString())
                 .param("name", USER_NAME)
                 .param("email", USER_EMAIL)
         )
-                .andExpect(view().name("redirect:/user/profile"))
+                .andExpect(view().name("redirect:/usuario/perfil"))
                 .andExpect(model().size(1))
                 .andExpect(flash().attributeExists("message"))
                 .andExpect(flash().attribute("message", FIELD_SAVED))

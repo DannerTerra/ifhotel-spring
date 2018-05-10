@@ -20,16 +20,16 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UsuarioDetailsImplService implements UserDetailsService {
 
-	private final UsuarioRepository userRepository;
+	private final UsuarioRepository usuarioRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return this.userRepository.findByUsername(username)
-				.map(user -> new UserImpl(
-				        user.getUsername(),
-                        user.getPassword(),
-						user.getPapeis().stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList()),
-                        user)
+		return this.usuarioRepository.findByUsername(username)
+				.map(usuario -> new UserImpl(
+				        usuario.getUsername(),
+                        usuario.getPassword(),
+						usuario.getPapeis().stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList()),
+                        usuario)
                 ).orElseThrow(() -> new UsernameNotFoundException("couldn't find " + username + "!"));
 	}
 }

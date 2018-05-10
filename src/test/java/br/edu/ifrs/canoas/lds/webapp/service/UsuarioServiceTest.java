@@ -31,7 +31,7 @@ public class UsuarioServiceTest {
         user.setPassword(PASSWORD);
 
         // when
-        Usuario saved = service.save(user);
+        Usuario saved = service.salva(user);
 
         // then
         assertThat(saved.getId()).isNotNull();
@@ -48,7 +48,7 @@ public class UsuarioServiceTest {
         user.setPassword(PASSWORD);
 
         // when
-        Usuario saved = service.save(user);
+        Usuario saved = service.salva(user);
 
         // then
         assertThat(saved).isNull();
@@ -62,7 +62,7 @@ public class UsuarioServiceTest {
         user.setPassword(PASSWORD);
 
         // when
-        Usuario saved = service.save(null);
+        Usuario saved = service.salva(null);
 
         // then
         assertThat(saved).isNull();

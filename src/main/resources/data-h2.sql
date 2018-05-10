@@ -17,4 +17,13 @@ insert into papel(id, role) values
 
 -- USER_ROLES
 insert into usuario_papeis (usuario_id, papeis_id) values
-(100, 1),
+(100, 1);
+
+-- PessoaFisica
+insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
+            values ('PF', 103, 'john.smith@mailinator.com', 'John', '54999999999', '11111111111', current_date(), '1111111111', 'M', '', '', '', null);
+insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
+            values ('PF', 304, 'fulano.bitcho@mailinator.com', 'Fulano', '54888888888', '22222222222', current_date(), '2222222222', 'M', '', '', '', null);
+insert into Pessoa (tipo_pessoa, id, email, nome, telefone, cpf, data_Nascimento, rg, sexo, cnpj, inscricao_estadual, inscricao_municipal, endereco_id)
+            values ('PF', 405, 'edgar.dti@mailinator.com', 'Edgar', '54333333333', '33333333333', current_date(), '3333333333', 'M', '', '', '', null);
+

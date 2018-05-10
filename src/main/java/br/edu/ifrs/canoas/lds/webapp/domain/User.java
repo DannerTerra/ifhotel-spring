@@ -11,6 +11,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -30,7 +33,7 @@ public class User {
 	private Long id;
 	private String username;
 	private boolean active;
-	private String password;
+	@NotNull @Size(min=6, max=8) @Pattern(regexp = "[a-zA-Z0-9]+", message="#{validacao.letras}")  private String password;
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles;
 	@NotBlank

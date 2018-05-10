@@ -7,6 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import br.edu.ifrs.canoas.lds.webapp.domain.enums.TipoDeQuarto;
 import lombok.Data;
@@ -19,10 +20,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Quarto extends BaseEntity<Long> implements Serializable {
+public class Quarto implements Serializable {
 
 	private static final long serialVersionUID = 8671579293612635068L;
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 	
 	private String numero;
 	

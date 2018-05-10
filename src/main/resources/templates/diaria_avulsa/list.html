@@ -53,7 +53,7 @@
                 </tr>
                 <tr th:each="diariaAvulsa : ${diariasAvulsas}">
                   <td th:text="${diariaAvulsa.quarto.descricao}">Quarto</td>
-                  <td th:text="${diariaAvulsa.cliente.cpfCnpj}">0000</td>
+                  <td th:text="${cpfcnpj}">0000</td>
                   <td th:text="${#dates.format(diariaAvulsa.data, 'dd/MM/yyyy')}">11-7-2014</td>
                   <td> <a href="#" th:href="@{|diaria_avulsa/edita/${diariaAvulsa.id}|}" >Editar</a>|
                   	   <a href="#" th:href="@{|diaria_avulsa/delete/${diariaAvulsa.id}|}" >Excluir</a>

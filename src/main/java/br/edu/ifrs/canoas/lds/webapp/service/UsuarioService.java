@@ -29,4 +29,8 @@ public class UsuarioService {
 		Optional<Usuario> optUser = userRepository.findById(user.getId());
 		return optUser.isPresent()?optUser.get():null;
 	}
+
+	public Iterable<Usuario> list() {
+		return userRepository.findAll();
+	}
 }

@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.ifrs.canoas.lds.webapp.config.Messages;
 import br.edu.ifrs.canoas.lds.webapp.domain.DiariaAvulsa;
+import br.edu.ifrs.canoas.lds.webapp.domain.PessoaFisica;
+import br.edu.ifrs.canoas.lds.webapp.domain.PessoaJuridica;
 import br.edu.ifrs.canoas.lds.webapp.service.DiariaAvulsaService;
 import br.edu.ifrs.canoas.lds.webapp.service.PessoaFisicaService;
 import br.edu.ifrs.canoas.lds.webapp.service.PessoaJuridicaService;
@@ -37,6 +39,9 @@ public class DiariaAvulsaController {
 		mav.addObject("pessoasFisicas", pessoaFisicaService.list());
 		mav.addObject("pessoasJuridicas", pessoaJuridicaService.findAll());
 		mav.addObject("diariasAvulsas", diariaAvulsaService.findAll());
+		mav.addObject("diariaAvulsa", new DiariaAvulsa());
+		mav.addObject("pessoaFisica", new PessoaFisica());
+		mav.addObject("pessoaJuridica", new PessoaJuridica());
 		return mav;
 	}
 
@@ -63,9 +68,9 @@ public class DiariaAvulsaController {
 	}
 
 	@PostMapping("/salva")
-	public ModelAndView salva(@Valid DiariaAvulsa diariaAvulsa) {
+	public ModelAndView salva(@Valid DiariaAvulsa diariaAvulsa, PessoaFisica pessoaFisica, PessoaJuridica pessoaJuridica) {
 		ModelAndView mav = new ModelAndView("redirect:/diaria_avulsa/");
-		diariaAvulsaService.salva(diariaAvulsa);
+		diariaAvulsaService.salva(diariaAvulsa, pessoaFisica, pessoaJuridica);
 		return mav;
 	}
 }

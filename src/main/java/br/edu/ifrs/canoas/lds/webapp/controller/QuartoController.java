@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.ifrs.canoas.lds.webapp.config.Messages;
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
+@RequestMapping("/quarto")
 public class QuartoController {
 	
 	private final Messages messages;
@@ -22,7 +24,7 @@ public class QuartoController {
     
 	@GetMapping("/")
 	public ModelAndView list() {
-		ModelAndView mav = new ModelAndView("list");
+		ModelAndView mav = new ModelAndView("/quarto/list");
 		mav.addObject("quarto", quartoService.findAll());
 		return mav;
 	}
@@ -35,14 +37,14 @@ public class QuartoController {
 
 	@GetMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/quarto/form");
 		//mav.addObject("quarto", new QuartoService());
 		return mav;
 	}
 
 	@GetMapping("/edita/{id}")
 	public ModelAndView edita(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("/quarto/form");
 		mav.addObject("quarto", quartoService.busca(id));
 		return mav;
 	}

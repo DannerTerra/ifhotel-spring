@@ -5,9 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.webapp.domain.DiariaAvulsa;
 import br.edu.ifrs.canoas.lds.webapp.domain.Quarto;
-import br.edu.ifrs.canoas.lds.webapp.repository.DiariaAvulsaRepository;
 import br.edu.ifrs.canoas.lds.webapp.repository.QuartoRepository;
 import lombok.AllArgsConstructor;
 

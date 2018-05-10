@@ -9,14 +9,14 @@
 		<section class="content-header">
 			<!-- PAGE TITLE -->
 			<h1>
-				<span th:text="#{quarto.list}" />
+				<span th:text="#{quarto.titulo}" />
 			</h1>
 			<!-- BREADCRUMB -->
 			<ol class="breadcrumb">
 				<li><a href="#"> <i class="fa fa-dashboard"></i> <span
 						th:text="#{breadcrumb}" />
 				</a></li>
-				<li><a href="#"><span th:text="#{quarto.list}" /></a></li>
+				<li><a href="#"><span th:text="#{quarto.titulo}" /></a></li>
 			</ol>
 		</section>
 	</div>
@@ -31,7 +31,7 @@
 		<div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
+              <h3 class="box-title" th:text="#{quarto.tabela.titulo}">Responsive Hover Table</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">

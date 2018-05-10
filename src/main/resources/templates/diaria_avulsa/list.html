@@ -9,14 +9,13 @@
 		<section class="content-header">
 			<!-- PAGE TITLE -->
 			<h1>
-				<span th:text="#{user.list}" />
+				<span th:text="#{diaria.administracao}" />
 			</h1>
 			<!-- BREADCRUMB -->
 			<ol class="breadcrumb">
-				<li><a href="#"> <i class="fa fa-dashboard"></i> <span
-						th:text="#{breadcrumb}" />
+				<li><a href="#"> <i class="fa fa-dashboard"></i> <span th:text="#{breadcrumb}" />
 				</a></li>
-				<li><a href="#"><span th:text="#{user.list}" /></a></li>
+				<li><a href="#"><span th:text="#{diaria.administracao}" /></a></li>
 			</ol>
 		</section>
 	</div>
@@ -31,7 +30,7 @@
 		<div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Diarias</h3>
+              <h3 class="box-title"><span th:text="#{diarias}" /></h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -47,15 +46,15 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tbody><tr>
-                  <th>Quarto</th>
-                  <th>CPF/CNPJ</th>
-                  <th>Data de Entrada</th>
-                  <th>Acoes</th>
+                  <th><span th:text="#{quarto}" /></th>
+                  <th><span th:text="#{pessoa.cpfcnpj}" /></th>
+                  <th><span th:text="#{geral.data.entrada}" /></th>
+                  <th><span th:text="#{geral.acao}" /></th>
                 </tr>
-                <tr th:each="diariaAvulsa : ${diariasAvulsa}">
+                <tr th:each="diariaAvulsa : ${diariasAvulsas}">
                   <td th:text="${diariaAvulsa.quarto.descricao}">Quarto</td>
                   <td th:text="${diariaAvulsa.cliente.cpfCnpj}">0000</td>
-                  <td th:text="${#dates.format(diariaAvulsa.data, 'dd-MMM-yyyy')}">11-7-2014</td>
+                  <td th:text="${#dates.format(diariaAvulsa.data, 'dd/MM/yyyy')}">11-7-2014</td>
                   <td> <a href="#" th:href="@{|diaria_avulsa/edita/${diariaAvulsa.id}|}" >Editar</a>|
                   	   <a href="#" th:href="@{|diaria_avulsa/delete/${diariaAvulsa.id}|}" >Excluir</a>
 				  </td> 	

@@ -44,7 +44,8 @@
 			</div>
 			<!-- /.box-header -->
 			<!-- form start -->
-			<form role="form">
+			<form role="form" th:action="@{/diaria_avulsa/salva}" 
+				th:object="${diariaAvulsa}"	 method="post">
 				<div class="box-body">
 					<div class="form-group">
 						<label th:text="#{reserva.cliente}">Select</label> <select
@@ -58,8 +59,8 @@
 
 					<div class="form-group">
 						<label th:text="#{reserva.pf}">Select</label> <select
-							class="form-control">
-							<option th:text="#{reserva.selectPF}" value="">Selecione
+							class="form-control" th:field="${diariaAvulsa.cliente.id}">
+							<option th:text="#{reserva.selectPF}" >Selecione
 								o país</option>
 							<option th:each="pessoaFisica : ${pessoasFisicas}"
 								th:value="${pessoaFisica.id}" th:text="${pessoaFisica.nome}">option
@@ -69,7 +70,7 @@
 
 					<div class="form-group">
 						<label th:text="#{reserva.pj}">Select</label> <select
-							class="form-control">
+							class="form-control" th:field="${diariaAvulsa.cliente.id}">
 							<option th:text="#{reserva.selectPJ}" value="">Selecione
 								o país</option>
 							<option th:each="pessoaJuridica : ${pessoasJuridicas}"
@@ -80,7 +81,7 @@
 
 					<div class="form-group">
 						<label th:text="#{reserva.quarto}">Select</label> <select
-							class="form-control">
+							class="form-control" th:field="${diariaAvulsa.quarto.id}">
 							<option th:text="#{reserva.selectQuarto}" value="">Selecione
 								o país</option>
 							<option th:each="quarto : ${quartos}" th:value="${quarto.id}"

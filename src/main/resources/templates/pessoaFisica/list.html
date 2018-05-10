@@ -48,10 +48,10 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Dt.Nascimento</th>
-                  <th>Idade</th>
+                  <th><span th:text="#{pessoaFisica.nome}" /></th>
+                  <th><span th:text="#{pessoaFisica.email}" /></th>
+                  <th><span th:text="#{pessoaFisica.dataNascimento}" /></th>
+                  <th><span th:text="#{pessoaFisica.idade}" />Idade</th>
                 </tr>
                 <tr th:each="pessoaFisica : ${pessoasFisicas}">
                   <td th:text="${pessoaFisica.id}">183</td>

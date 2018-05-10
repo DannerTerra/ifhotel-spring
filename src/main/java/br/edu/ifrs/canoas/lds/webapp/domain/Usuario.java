@@ -35,7 +35,7 @@ public class Usuario {
 	private boolean active;
 	private String password;
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<Role> roles;
+	private Set<Papel> papeis;
 	@NotBlank
 	private String name;
 	@Email @NotBlank
@@ -43,6 +43,6 @@ public class Usuario {
 	private String experience;
 	private String skill;
     @OneToOne
-    private File picture;
+    private Arquivo picture;
 
 }

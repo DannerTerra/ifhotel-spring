@@ -28,7 +28,7 @@ public class UsuarioDetailsImplService implements UserDetailsService {
 				.map(user -> new UserImpl(
 				        user.getUsername(),
                         user.getPassword(),
-						user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList()),
+						user.getPapeis().stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList()),
                         user)
                 ).orElseThrow(() -> new UsernameNotFoundException("couldn't find " + username + "!"));
 	}

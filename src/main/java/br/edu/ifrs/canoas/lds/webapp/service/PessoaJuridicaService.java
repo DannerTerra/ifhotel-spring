@@ -21,7 +21,7 @@ public class PessoaJuridicaService {
 		pessoaJuridicaRepository.deleteById(id);
 	}
 
-	public PessoaJuridica save(PessoaJuridica pessoaJuridica) { 
+	public PessoaJuridica salva(PessoaJuridica pessoaJuridica) { 
 		return pessoaJuridicaRepository.save(pessoaJuridica);
 	}
 

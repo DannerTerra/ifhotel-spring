@@ -30,7 +30,7 @@ public class Reserva {
 	private LocalDate data;
 
 	@ManyToOne
-	private Pessoa cliente;
+	private PessoaFisica cliente;
 
 	@OneToOne
 	private DiariaReservada diaria;

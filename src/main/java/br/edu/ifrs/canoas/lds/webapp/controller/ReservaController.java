@@ -39,6 +39,8 @@ public class ReservaController {
 		mav.addObject("quartos", quartoService.findAll());
 		mav.addObject("pessoasFisicas", pessoaFisicaService.list());
 		mav.addObject("pessoasJuridicas", pessoaJuridicaService.findAll());
+		mav.addObject("reserva", new Reserva());
+		
 		return mav;
 	}
 	
@@ -63,7 +65,7 @@ public class ReservaController {
             return new ModelAndView("/reserva/lista");
         }
 
-    	ModelAndView mav = new ModelAndView("redirect:/reserva");
+    	ModelAndView mav = new ModelAndView("redirect:/reserva/");
         mav.addObject("reserva", reservaService.salva(reserva));
         redirectAttr.addFlashAttribute("message", messages.get("field.saved"));
 
